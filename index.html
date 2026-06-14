@@ -294,8 +294,7 @@
 <script>
 const PLAYERS = ['Gabi_7892', 'Titiavec1maj'];
 const API_KEY = '62b43df23cc74afd827f43a2f6db3273';
-const PROXY   = 'https://corsproxy.io/?url=';
-const BASE    = 'https://api.donutsmp.net';
+const APPS_SCRIPT = 'https://script.google.com/macros/s/AKfycbw0VFWOWenWrgS3GkLgJNZ6vNPHOO4hL3n7iDlYlP-iZPac-dmAPx-T86IFIJxrrlDTqA/exec';
 const REFRESH = 10;
 
 let countdown = REFRESH;
@@ -425,11 +424,9 @@ function showError(username, msg) {
   err.textContent = msg;
 }
 
-async function apiFetch(path) {
-  const url = PROXY + encodeURIComponent(BASE + path);
-  const r = await fetch(url, {
-    headers: { 'Authorization': 'Bearer ' + API_KEY }
-  });
+async function apiFetch(player, type) {
+  const url = APPS_SCRIPT + '?player=' + encodeURIComponent(player) + '&type=' + type;
+  const r = await fetch(url);
   return r;
 }
 
@@ -438,8 +435,7 @@ async function loadPlayer(username) {
   let online = null;
 
   try {
-    const r = await apiFetch('/v1/player/stats/' + username);
-    if (r.status === 401) { showError(username, '❌ Clé API invalide ou expirée.'); return; }
+    const r = await apiFetch(username, 'stats');
     if (!r.ok) { showError(username, '❌ Joueur introuvable : ' + username); return; }
     const data = await r.json();
     stats = data.data || data;
@@ -449,7 +445,7 @@ async function loadPlayer(username) {
   }
 
   try {
-    const r2 = await apiFetch('/v1/player/online/' + username);
+    const r2 = await apiFetch(username, 'online');
     if (r2.ok) {
       const d2 = await r2.json();
       online = d2.online === true || d2.data?.online === true;
