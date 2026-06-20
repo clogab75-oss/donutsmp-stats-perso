@@ -1,0 +1,198 @@
+# ================================================
+#           ChillSMP - Configuration principale
+# ================================================
+
+# Nom affiché dans le TAB, le chat, etc.
+server-name: "Chill SMP"
+
+# Couleur principale (codes couleur Minecraft: &a, &b, &c...)
+primary-color: "&b"
+secondary-color: "&7"
+accent-color: "&e"
+
+# ------------------------------------------------
+#  ANTI-XRAY
+# ------------------------------------------------
+anti-xray:
+  enabled: true
+  # Ratio minimum ore/stone pour déclencher une alerte (ex: 0.15 = 15%)
+  alert-threshold: 0.15
+  # Nombre minimum de blocs minés avant de commencer à analyser
+  min-blocks-mined: 50
+  # Si un joueur ne mine plus rien pendant ce délai (en minutes), ses données
+  # sont enregistrées dans un fichier de log puis réinitialisées
+  inactivity-reset-minutes: 10
+  # Minerais surveillés
+  tracked-ores:
+    - DIAMOND_ORE
+    - DEEPSLATE_DIAMOND_ORE
+    - ANCIENT_DEBRIS
+    - EMERALD_ORE
+    - DEEPSLATE_EMERALD_ORE
+    - GOLD_ORE
+    - DEEPSLATE_GOLD_ORE
+
+# ------------------------------------------------
+#  DROP DE TÊTE
+# ------------------------------------------------
+head-drop:
+  enabled: true
+  # Chance de drop (1.0 = 100%)
+  drop-chance: 1.0
+
+# ------------------------------------------------
+#  VANISH
+# ------------------------------------------------
+vanish:
+  # Message affiché dans le chat quand un op se vanish (simule une déconnexion)
+  fake-quit-message: "&7[&c-&7] &c{player} &7a quitté le serveur."
+  fake-join-message: "&7[&a+&7] &a{player} &7a rejoint le serveur."
+
+# ------------------------------------------------
+#  VEIN MINER
+# ------------------------------------------------
+vein-miner:
+  enabled: true
+  # Activer en snneakant (shift) + minant
+  require-sneak: true
+  # Outil requis (PICKAXE = toute pioche, ou un material précis)
+  required-tool: "PICKAXE"
+  # Nombre maximum de blocs par vein mine
+  max-blocks: 64
+  # Durabilité consommée par bloc (0 = désactivé)
+  durability-per-block: 1
+  # Blocs traités comme "vein"
+  vein-blocks:
+    - DIAMOND_ORE
+    - DEEPSLATE_DIAMOND_ORE
+    - COAL_ORE
+    - DEEPSLATE_COAL_ORE
+    - IRON_ORE
+    - DEEPSLATE_IRON_ORE
+    - GOLD_ORE
+    - DEEPSLATE_GOLD_ORE
+    - EMERALD_ORE
+    - DEEPSLATE_EMERALD_ORE
+    - LAPIS_ORE
+    - DEEPSLATE_LAPIS_ORE
+    - REDSTONE_ORE
+    - DEEPSLATE_REDSTONE_ORE
+    - COPPER_ORE
+    - DEEPSLATE_COPPER_ORE
+    - ANCIENT_DEBRIS
+    - NETHER_QUARTZ_ORE
+    - NETHER_GOLD_ORE
+
+# ------------------------------------------------
+#  TREE FELLER (coupe d'arbres)
+# ------------------------------------------------
+tree-feller:
+  enabled: true
+  # Activer en snneakant (shift) + coupant
+  require-sneak: true
+  # Outil requis
+  required-tool: "AXE"
+  # Nombre maximum de blocs par tree fell
+  max-blocks: 150
+  # Durabilité consommée par bloc
+  durability-per-block: 1
+  # Types de troncs supportés
+  log-blocks:
+    - OAK_LOG
+    - SPRUCE_LOG
+    - BIRCH_LOG
+    - JUNGLE_LOG
+    - ACACIA_LOG
+    - DARK_OAK_LOG
+    - MANGROVE_LOG
+    - CHERRY_LOG
+    - BAMBOO_BLOCK
+    - CRIMSON_STEM
+    - WARPED_STEM
+
+# ------------------------------------------------
+#  HOPPERS
+# ------------------------------------------------
+hoppers:
+  # Délai en ticks entre chaque transfert d'item (vanilla = 8)
+  transfer-delay-ticks: 8
+  # Nombre d'items transférés par tick
+  items-per-transfer: 1
+
+# ------------------------------------------------
+#  STACKING D'ITEMS (jusqu'à 99)
+# ------------------------------------------------
+custom-stacking:
+  enabled: true
+  # Items pouvant stack jusqu'à 99
+  # Mettre le nom Material exact
+  stackable-items:
+    ENDER_PEARL: 99
+    SNOWBALL: 99
+    EGG: 99
+    BUCKET: 99
+    WATER_BUCKET: 99
+    LAVA_BUCKET: 99
+    MILK_BUCKET: 99
+    SADDLE: 99
+    TOTEM_OF_UNDYING: 99
+    ELYTRA: 99
+
+# ------------------------------------------------
+#  TAB LIST
+# ------------------------------------------------
+tab:
+  # En-tête du TAB
+  header: |
+    &b&l✦ {server-name} &b&l✦
+    &7Joueurs en ligne: &b{online}&7/&b{max}
+  # Pied de page du TAB
+  footer: |
+    &7Discord: &bdiscord.gg/example
+    &7Site: &bchillsmp.fr
+  # Format du pseudo dans le tab
+  # {rank} {player} {ping}ms
+  name-format: "&7{player}"
+
+# ------------------------------------------------
+#  HUD (scoreboard droit)
+# ------------------------------------------------
+hud:
+  enabled: true
+  # Titre du scoreboard
+  title: "&b&l✦ Chill SMP"
+  # Lignes affichées (dans l'ordre)
+  # Variables: {player}, {playtime}, {kills}, {deaths}, {kd}, {online}, {ping}, {coords}, {biome}
+  default-lines:
+    - "&7⏱ Playtime: &b{playtime}"
+    - "&7⚔ Kills: &a{kills}"
+    - "&7☠ Deaths: &c{deaths}"
+    - "&7📊 K/D: &e{kd}"
+    - "&7🌍 Biome: &b{biome}"
+    - "&7👥 En ligne: &b{online}"
+    - "&7📶 Ping: &a{ping}ms"
+
+# ------------------------------------------------
+#  TRADE
+# ------------------------------------------------
+trade:
+  # Timeout en secondes pour accepter une demande de trade
+  request-timeout: 30
+
+# ------------------------------------------------
+#  MESSAGES
+# ------------------------------------------------
+messages:
+  prefix: "&8[&bChillSMP&8] &r"
+  no-permission: "&cVous n'avez pas la permission."
+  player-not-found: "&cJoueur introuvable."
+  reload-success: "&aPlugin rechargé avec succès !"
+  vanish-on: "&aVous êtes maintenant invisible."
+  vanish-off: "&cVous êtes maintenant visible."
+  head-drop: "&7La tête de &c{player}&7 a été droppée !"
+  trade-request-sent: "&aProposition de trade envoyée à &b{player}&a."
+  trade-request-received: "&b{player} &avous propose un trade. &e[Cliquez ici pour accepter]"
+  trade-cancelled: "&cTrade annulé."
+  trade-accepted: "&aTrade accepté !"
+  trade-completed: "&aTrade effectué avec succès !"
+  xray-alert: "&c⚠ &lALERTE XRAY &c⚠ &r&c{player} &7a un ratio de minerais suspect (&e{ratio}%&7)"

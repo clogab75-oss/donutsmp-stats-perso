@@ -1,0 +1,36 @@
+# ================================================
+#     ChillSMP - Commandes personnalisées
+# ================================================
+# Format:
+# commande:
+#   message: "Texte affiché"
+#   hover: "Texte au survol (optionnel)"
+#   url: "URL cliquable (optionnel)"
+#   op-only: false
+#
+# Les messages supportent les codes couleur &
+
+commands:
+  site:
+    message: "&b&l✦ Site web &8» &7https://chillsmp.fr"
+    hover: "Cliquer pour ouvrir le site"
+    url: "https://chillsmp.fr"
+    op-only: false
+
+  discord:
+    message: "&b&l✦ Discord &8» &7discord.gg/chillsmp"
+    hover: "Cliquer pour rejoindre le Discord"
+    url: "https://discord.gg/chillsmp"
+    op-only: false
+
+  rules:
+    message: |
+      &b&l✦ Règles du Chill SMP &b&l✦
+      &71. Respectez les autres joueurs.
+      &72. Pas de triche ou de hacks.
+      &73. Amusez-vous bien !
+    op-only: false
+
+  ip:
+    message: "&b&l✦ IP &8» &7play.chillsmp.fr"
+    op-only: false

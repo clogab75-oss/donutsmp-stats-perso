@@ -1,0 +1,44 @@
+name: ChillSMP
+version: '${project.version}'
+main: com.chillsmp.ChillSMPPlugin
+api-version: '1.21'
+description: Plugin all-in-one pour le Chill SMP
+authors: [ChillSMP]
+
+commands:
+  xray:
+    description: Ouvre le menu anti-xray (OP)
+    usage: /xray
+  staff:
+    description: Ouvre le tableau de bord staff (OP)
+    usage: /staff
+  vanish:
+    description: Active/désactive le vanish (OP)
+    usage: /vanish
+  trade:
+    description: Propose un trade à un joueur
+    usage: /trade <joueur>
+  stats:
+    description: Affiche les stats d'un joueur
+    usage: /stats [joueur]
+  hud:
+    description: Configure ton HUD/scoreboard
+    usage: /hud
+  interface:
+    description: Configure ton HUD/scoreboard
+    usage: /interface
+  smpreload:
+    description: Recharge tous les fichiers de config (OP)
+    usage: /smpreload
+  ban:
+    description: Ban temporaire un joueur (OP)
+    usage: /tempban <joueur> <durée> [raison]
+  tempban:
+    description: Ban temporaire un joueur (OP)
+    usage: /tempban <joueur> <durée> [raison]
+  unban:
+    description: Unban un joueur (OP)
+    usage: /unban <joueur>
+  nickname:
+    description: Change le pseudo affiché d'un joueur (OP)
+    usage: /nickname <joueur> <nouveau pseudo>|reset
